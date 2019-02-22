@@ -30,15 +30,16 @@ class VisualizationController extends Controller
         $posother = 0;
 
         foreach($resignedEmp as $emp) {
-            if ($emp->gender == 'Male' && ($emp->marital_status == 'Single' || $emp->marital_status == 'Độc thân'))
+            if ($emp->gender == 'Male' && $emp->marital_status == 'Single')
                 $maleS++;
-            else if ($emp->gender == 'Male' && $emp->marital_status == 'Merried ')        
+            else if ($emp->gender == 'Male' && $emp->marital_status == 'Married')        
 	    	    $maleM++;
-	        else if ($emp->gender == 'Female' && ($emp->marital_status =='Single' || $emp->marital_status == 'Độc thân'))
+	        else if ($emp->gender == 'Female' && $emp->marital_status =='Single')
                 $femaleS++;
-	        else if ($emp->gender == 'Female' && $emp->marital_status=='Merried ')
+	        else if ($emp->gender == 'Female' && $emp->marital_status=='Married')
                 $femaleM++;
-            if ($emp->last_position == 'DEV')
+            /*
+                if ($emp->last_position == 'DEV')
                 $posdev++;
             else if ($emp->last_position == 'QA')
                 $posqa++;
@@ -47,6 +48,7 @@ class VisualizationController extends Controller
             else if ($emp->last_position == 'Intership' || $emp->last_position == 'intership')
                 $posintership++;
             else $posother++;
+            */
         }
         $maleSper = round($maleS*100/($maleS + $femaleS + $maleM + $femaleM), 1);
         $femaleSper = round($femaleS*100/($maleS + $femaleS + $maleM + $femaleM), 1);
