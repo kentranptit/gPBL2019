@@ -203,7 +203,6 @@ theta);
             alert(e);
             })
         </script>
-    </div>
 @endforeach
 
 
