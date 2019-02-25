@@ -1,10 +1,13 @@
 <html>
-<body>
+<head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset=utf-8></script>
 <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset=utf-8></script>
 <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
 <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+</head>
+<body>
 <h1>Hello, Global PBL Teams!</h1>
 <p>このページはデータベースに接続していくつかのデータを取得、表示するコードを例示するためのサンプルです。<br/>
 詳しくは、Laravelのドキュメントを参照してください。 <a href="http://laravel.jp/">http://laravel.jp/</a></p>
@@ -107,14 +110,14 @@ var chart = new Chart(ctx, {
 <h3>Map</h3>
 <p id="near"></p>
 <p id="far"></p>
-<div style="width:500px height:500px margin:auto" id='map'></div>
-<div id="geolocation">Geolocation</div>
+<div style="width:500px; height:500px; margin:auto" id='map'></div>
+<div id="geolocation"></div>
 <script>
     var platform = new H.service.Platform({
         'app_id': 'KTaS5N8kgmop9R0exGB8',
         'app_code': 'TC7X2f9TI0IHqg5N8M42NA'
     });
-    console.log(platform);
+    //console.log(platform);
     var defaultLayers = platform.createDefaultLayers();
     var map = new H.Map(
     document.getElementById('map'), defaultLayers.normal.map,{
@@ -156,8 +159,7 @@ var chart = new Chart(ctx, {
                 var radlat2 = Math.PI * lat2/180;
                 var theta = lon1-lon2;
                 var radtheta = Math.PI * theta/180;
-                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(rad\
-theta);
+                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
                 if (dist > 1) {
                 dist = 1;
                 }
